@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Chatito - Generate training datasets for slot filling chatbots in a breeze using a simple DSL</title>
+    <title>RDG - Rasa Dialog Generator</title>
     <style>
         :focus {
             outline: none;
@@ -74,9 +74,9 @@
 <body>
     <div id="app">
         <div class="header">
-            <h1><a href="https://github.com/rodrigopivi/Chatito">Chatito</a></h1>
+            <h1><a href="https://github.com/rodrigopivi/Chatito">RDG</a></h1>
             <h2>
-                Generate training datasets for slot filling chatbots online and in a breeze using a simple DSL.
+                Generate Dialog data tu be used for model training in Rasa.
                 <a href="https://github.com/rodrigopivi/Chatito">Read the docs</a>
             <h2>
         </div>
@@ -144,21 +144,19 @@
     <script>
         const examples = [];
         examples.push({
-            name: "Lights manager", value: `
-%[lightChange]
-    lights @[switch]
+            name: "Wanna eat", value: `
+* wantToEat{"food": @[food]}
+    - utter_answer
 
-@[switch]
-    ~[on]
-    ~[off]
+@[food]
+    ~[frites]
+    tomatoes
+    potatoes
 
-~[on]
-    on
-    active
-
-~[off]
-    off
-    inactive`
+~[frites]
+    frites
+    fries
+`
         });
     </script>
 </body>
